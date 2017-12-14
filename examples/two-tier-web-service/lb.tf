@@ -54,6 +54,10 @@ variable service_ilb_ip_map {
       ip = "10.142.1.250"
     }
 
+    asia-south1 {
+      ip = "10.160.1.250"
+    }
+
     asia-northeast1 {
       ip = "10.146.1.250"
     }
@@ -61,12 +65,15 @@ variable service_ilb_ip_map {
     australia-southeast1 {
       ip = "10.152.1.250"
     }
+
+    southamerica-east1 {
+      ip = "10.158.1.250"
+    }
   }
 }
 
 module "service-tier1-lb" {
-  // source       = "github.com/GoogleCloudPlatform/terraform-google-lb"
-  source           = "../../../terraform-google-lb"
+  source       = "github.com/GoogleCloudPlatform/terraform-google-lb"
   region           = "${var.region}"
   name             = "service-tier1-lb"
   project          = "${google_project_services.tier1.project}"
@@ -76,8 +83,7 @@ module "service-tier1-lb" {
 }
 
 module "service-tier2-ilb" {
-  // source      = "github.com/GoogleCloudPlatform/terraform-google-lb-internal"
-  source          = "../../../terraform-google-lb-internal"
+  source      = "github.com/GoogleCloudPlatform/terraform-google-lb-internal"
   region          = "${var.region}"
   name            = "service-tier2-ilb"
   project         = "${google_project_services.tier2.project}"
