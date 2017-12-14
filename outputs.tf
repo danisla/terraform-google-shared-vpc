@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 output project_id {
   description = "The host project id"
   value       = "${google_project_services.host.project}"

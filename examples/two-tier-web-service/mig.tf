@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 data "template_file" "startup-script-tier1" {
   template = "${file("${format("%s/nginx_upstream.sh.tpl", path.module)}")}"
 

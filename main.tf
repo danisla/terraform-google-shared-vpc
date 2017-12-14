@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 resource "random_id" "default-project-id" {
   byte_length = 2
   prefix      = "host-"

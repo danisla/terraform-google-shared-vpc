@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 variable service_ilb_ip_map {
   type = "map"
 
@@ -73,7 +73,7 @@ variable service_ilb_ip_map {
 }
 
 module "service-tier1-lb" {
-  source       = "github.com/GoogleCloudPlatform/terraform-google-lb"
+  source           = "github.com/GoogleCloudPlatform/terraform-google-lb"
   region           = "${var.region}"
   name             = "service-tier1-lb"
   project          = "${google_project_services.tier1.project}"
@@ -83,7 +83,7 @@ module "service-tier1-lb" {
 }
 
 module "service-tier2-ilb" {
-  source      = "github.com/GoogleCloudPlatform/terraform-google-lb-internal"
+  source          = "github.com/GoogleCloudPlatform/terraform-google-lb-internal"
   region          = "${var.region}"
   name            = "service-tier2-ilb"
   project         = "${google_project_services.tier2.project}"
