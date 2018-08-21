@@ -73,7 +73,8 @@ variable service_ilb_ip_map {
 }
 
 module "service-tier1-lb" {
-  source           = "github.com/GoogleCloudPlatform/terraform-google-lb"
+  source           = "GoogleCloudPlatform/lb/google"
+  version          = "1.0.2"
   region           = "${var.region}"
   name             = "service-tier1-lb"
   project          = "${google_project_services.tier1.project}"
@@ -83,7 +84,8 @@ module "service-tier1-lb" {
 }
 
 module "service-tier2-ilb" {
-  source          = "github.com/GoogleCloudPlatform/terraform-google-lb-internal"
+  source          = "GoogleCloudPlatform/lb-internal/google"
+  version         = "1.0.4"
   region          = "${var.region}"
   name            = "service-tier2-ilb"
   project         = "${google_project_services.tier2.project}"

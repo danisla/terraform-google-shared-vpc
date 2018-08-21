@@ -37,7 +37,8 @@ data "google_compute_subnetwork" "shared-service" {
 }
 
 module "service-tier1" {
-  source             = "github.com/GoogleCloudPlatform/terraform-google-managed-instance-group"
+  source             = "GoogleCloudPlatform/managed-instance-group/google"
+  version            = "1.1.13"
   name               = "service-tier1"
   project            = "${google_project_services.tier1.project}"
   network            = "${data.google_compute_subnetwork.shared-service.network}"
@@ -61,7 +62,7 @@ module "service-tier1" {
 }
 
 module "service-tier2" {
-  source             = "github.com/GoogleCloudPlatform/terraform-google-managed-instance-group"
+  source             = "GoogleCloudPlatform/managed-instance-group/google"
   name               = "service-tier2"
   project            = "${google_project_services.tier2.project}"
   network            = "${data.google_compute_subnetwork.shared-service.network}"
